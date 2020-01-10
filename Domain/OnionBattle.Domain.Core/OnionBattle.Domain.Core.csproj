@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GameDomain\Cell.cs" />
+    <Compile Include="GameDomain\Coords.cs" />
     <Compile Include="GameDomain\Entity.cs" />
     <Compile Include="GameDomain\Game.cs" />
     <Compile Include="GameDomain\GameBoard.cs" />

@@ -14,7 +14,7 @@ namespace OnionBattle.Domain.Core.GameDomain
 
     public class Ship : Entity
     {
-        public List<Cell> Coords { get; set; }
+        public List<Coords> Coords { get; set; }
         public ShipState State { get; set; }
         public int Length { get; set; }
         public Ship(int length)
