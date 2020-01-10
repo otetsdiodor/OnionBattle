@@ -10,6 +10,6 @@ namespace OnionBattle.Domain.Core.GameDomain
     {
         public Player Winner { get; set; }
         public int CountOfSteps { get; set; }
-        public Game Game { get; set; }
+        public List<Ship> Ships{ get; set; }
     }
 }

@@ -9,25 +9,23 @@ namespace OnionBattle.Domain.Core.GameDomain
 {
     public class Game : Entity
     {
-        public List<Player> Players { get; set; }
+        private const int maxPlayerCount = 2;
+        private int BoardLength; // ?????
+        public List<GameBoard> GameBoards { get; set; }
         public List<StepHistory> GameHistory { get; set; }
         public bool IsEnded { get; set; }
 
-        public Game() // length for GameBoard? 
+        public Game(int boardLength)
         {
-            Players = new List<Player>();
+            BoardLength = boardLength;
+            GameBoards = new List<GameBoard>(maxPlayerCount);
             GameHistory = new List<StepHistory>();
         }
 
-        public void AddPlayer(User user)
+        public void AddBoard(Player player)
         {   
-            var player = new Player(user);
-            if (Players.Count < 2)
-            {
-                Players.Add(player);
-                var gb = new GameBoard(player, 10);
-                player.GameBoard = gb;
-            }
+            if (GameBoards.Count < maxPlayerCount)
+                GameBoards.Add(new GameBoard(player,BoardLength));
         }
 
         //public void PlaceShip(Guid playerId,Guid shipId, int x, int y)
@@ -41,9 +39,11 @@ namespace OnionBattle.Domain.Core.GameDomain
 
         //}
 
-        public void Shoot(Player player,int x,int y)
-        {
-            player.GameBoard.Shoot(x, y);
-        }
+        //public void Shoot(Player player,int x,int y)
+        //{
+        //    GameBoards.Where(b=> b.Player == player)
+        //        .FirstOrDefault()
+        //        .Shoot(x, y);
+        //}
     }
 }

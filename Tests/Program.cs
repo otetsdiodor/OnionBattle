@@ -14,7 +14,7 @@ namespace Tests
             var dan = new Player() { Name = "Dan" };
             var bob = new Player() { Name = "BOB" };
             var game = new Game(dan);
-            game.AddPlayer(bob);
+            game.AddBoard(bob);
         }
     }
 }

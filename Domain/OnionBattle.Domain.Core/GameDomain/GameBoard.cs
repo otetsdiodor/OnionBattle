@@ -6,12 +6,18 @@ using System.Threading.Tasks;
 
 namespace OnionBattle.Domain.Core.GameDomain
 {
+    public enum BoardStatus
+    {
+        YourTurn,
+        NotYourTurn
+    }
     public class GameBoard : Entity
     {
         public int Length { get; set; }
         public List<List<Cell>> Field { get; set; }
         public List<Ship> Ships { get; set; }
         public Player Player { get; set; }
+        public BoardStatus Status { get; set; }
         public GameBoard(Player player,int length)
         {
             Player = player;
@@ -19,7 +25,7 @@ namespace OnionBattle.Domain.Core.GameDomain
             Field = new List<List<Cell>>();
             Ships = new List<Ship>();
             InitializeField();
-            InitializeShips();
+            //InitializeShips();
         }
 
         private void InitializeField()
@@ -28,19 +34,19 @@ namespace OnionBattle.Domain.Core.GameDomain
                 for (int j = 0; j < Length; j++)
                     Field[i][j] = new Cell(i, j);  
         }
-        private void InitializeShips()
-        {
-            Ships.Add(new Ship(1));
-            Ships.Add(new Ship(1));
-            Ships.Add(new Ship(1));
-            Ships.Add(new Ship(1));
-            Ships.Add(new Ship(4));
-            Ships.Add(new Ship(3));
-            Ships.Add(new Ship(3));
-            Ships.Add(new Ship(2));
-            Ships.Add(new Ship(2));
-            Ships.Add(new Ship(2));
-        }
+        //private void InitializeShips()
+        //{
+        //    Ships.Add(new Ship(1));
+        //    Ships.Add(new Ship(1));
+        //    Ships.Add(new Ship(1));
+        //    Ships.Add(new Ship(1));
+        //    Ships.Add(new Ship(4));
+        //    Ships.Add(new Ship(3));
+        //    Ships.Add(new Ship(3));
+        //    Ships.Add(new Ship(2));
+        //    Ships.Add(new Ship(2));
+        //    Ships.Add(new Ship(2));
+        //}
 
         public void Shoot(int x,int y)
         {
