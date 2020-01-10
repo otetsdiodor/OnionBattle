@@ -8,12 +8,12 @@ namespace OnionBattle.Domain.Core.GameDomain
 {
     public enum CellState
     {
-        Hidden,
+        Hidden, // Клетка, которая не стреляна
         Empty,
         Dead
     }
 
-    public class Cell
+    public class Cell : Entity
     {
         public int X { get; set; }
         public int Y { get; set; }

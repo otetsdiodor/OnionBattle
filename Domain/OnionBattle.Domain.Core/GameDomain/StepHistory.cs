@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace OnionBattle.Domain.Core.GameDomain
 {
-    public class GameHistory
+    public class StepHistory : Entity
     {
-        public int Id { get; set; }
         public Player User { get; set; }
         public Cell Cell { get; set; }
         public Game Game { get; set; }

@@ -13,16 +13,14 @@ namespace OnionBattle.Domain.Core.GameDomain
         Locked
     }
 
-    public class Player
+    public class Player : Entity
     {
-        public Guid Id { get; set; }
         public User User { get; set; }
         public GameBoard GameBoard { get; set; }
         public PlayerStatus Status { get; set; }
         
         public Player(User user)
         {
-            Id = Guid.NewGuid();
             User = user;
         }
     }

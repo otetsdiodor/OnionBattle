@@ -6,16 +6,14 @@ using System.Threading.Tasks;
 
 namespace OnionBattle.Domain.Core.GameDomain
 {
-    public class GameBoard
+    public class GameBoard : Entity
     {
-        public Guid Id { get; set; }
         public int Length { get; set; }
         public List<List<Cell>> Field { get; set; }
         public List<Ship> Ships { get; set; }
         public Player Player { get; set; }
         public GameBoard(Player player,int length)
         {
-            Id = Guid.NewGuid();
             Player = player;
             Length = length;
             Field = new List<List<Cell>>();

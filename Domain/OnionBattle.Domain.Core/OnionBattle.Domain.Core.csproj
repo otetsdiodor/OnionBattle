@@ -42,9 +42,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GameDomain\Cell.cs" />
+    <Compile Include="GameDomain\Entity.cs" />
     <Compile Include="GameDomain\Game.cs" />
     <Compile Include="GameDomain\GameBoard.cs" />
-    <Compile Include="GameDomain\GameHistory.cs" />
+    <Compile Include="GameDomain\StepHistory.cs" />
     <Compile Include="GameDomain\ResultStats.cs" />
     <Compile Include="GameDomain\Ship.cs" />
     <Compile Include="ManageDomain\User.cs" />

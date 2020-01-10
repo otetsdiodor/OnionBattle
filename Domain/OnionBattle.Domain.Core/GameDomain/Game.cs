@@ -7,19 +7,16 @@ using System.Threading.Tasks;
 
 namespace OnionBattle.Domain.Core.GameDomain
 {
-    public class Game
+    public class Game : Entity
     {
-        public Guid Id { get; set; }
         public List<Player> Players { get; set; }
-        public List<GameHistory> GameHistory { get; set; }
+        public List<StepHistory> GameHistory { get; set; }
         public bool IsEnded { get; set; }
 
-        public Game(User creator)
+        public Game() // length for GameBoard? 
         {
-            Id = Guid.NewGuid();
             Players = new List<Player>();
-            GameHistory = new List<GameHistory>();
-            AddPlayer(creator);
+            GameHistory = new List<StepHistory>();
         }
 
         public void AddPlayer(User user)
@@ -33,16 +30,16 @@ namespace OnionBattle.Domain.Core.GameDomain
             }
         }
 
-        public void PlaceShip(Guid playerId,Guid shipId, int x, int y)
-        {
-            var player = Players.FirstOrDefault(p => p.Id == playerId);
-            if (player == null)
-                throw new Exception("PLayer is null");
+        //public void PlaceShip(Guid playerId,Guid shipId, int x, int y)
+        //{
+        //    var player = Players.FirstOrDefault(p => p.Id == playerId);
+        //    if (player == null)
+        //        throw new Exception("PLayer is null");
 
-            player.GameBoard.PlaceShip()
+        //    player.GameBoard.PlaceShip();
 
 
-        }
+        //}
 
         public void Shoot(Player player,int x,int y)
         {
